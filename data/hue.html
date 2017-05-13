@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+  <script type="text/javascript" src="https://unpkg.com/vue@2.3.3"></script>
+  <script type="text/javascript" src="https://unpkg.com/vue-resource@1.3.1/dist/vue-resource.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vue-color@2.0.9"></script>
+  <style type="text/css">
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 100;
+      color: #333333;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+
+    h1,
+    h2 {
+      font-weight: 100;
+      font-weight: 100;
+    }
+
+    .color-picker {
+      margin-top: 3vh;
+    }
+
+    .vue-color__chrome {
+      width: 100%;
+    }
+
+    .vue-color__chrome__fields-wrap {
+      display: none;
+    }
+
+  </style>
+  <title>Hue</title>
+  <script type='text/javascript'>
+    window.onload = function () {
+      var app = new Vue({
+        el: '#app',
+        components: {
+          'chrome-picker': VueColor.Chrome,
+        },
+        data: {
+          message: '255',
+          colors: {
+            rgba: {
+              r: 255,
+              g: 255,
+              b: 255,
+              a: 1
+            }
+          }
+        },
+        watch: {
+          message: function () {
+            this.updateValue();
+          },
+          colors: function () {
+            this.updateValue()
+          }
+        },
+        methods: {
+          updateValue: _.debounce(function () {
+            this.$http.get(`http://smarty.local/rgb-strip?r=${this.colors.rgba.r}&g=${this.colors.rgba.g}&b=${this.colors.rgba.b}&br=${this.colors.rgba.a * 255}`).then(response => {
+
+              console.log(response.body);
+
+            }, response => {
+              // error callback
+            })
+          }, 500)
+        }
+      })
+
+    }
+
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Smarty
+          </h1>
+          <h2 class="subtitle">
+            Hue
+          </h2>
+        </div>
+      </div>
+    </section>
+    <div class="container color-picker">
+      <div class="columns is-hidden-tablet">
+        <div class="column">
+          <chrome-picker v-model="colors" />
+        </div>
+      </div>
+      <div class="columns is-hidden-mobile">
+        <div class="column is-5 is-offset-3">
+          <chrome-picker v-model="colors" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

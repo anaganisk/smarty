@@ -1,0 +1,16 @@
+language: python
+python:
+    - "2.7"
+
+sudo: false
+cache:
+    directories:
+        - "~/.platformio"
+
+install:
+    - pip install -U platformio
+
+before_script:
+    - wget https://gist.githubusercontent.com/anaganisk/f31adf060b1cecfc7a7b36fbbdce5253/raw/a2af135f657d34d88fcf723b2d1f0b35e502ad26/env.ini
+script:
+    - platformio run
