@@ -15,6 +15,7 @@ Smarty is a simple home automation interface based on ESP8266(ESP-01) and Arduin
 
 ### Modules
 __Hue__ :
+![Smarty Hue](./hue.JPG)
 Hue supports Adafruit NeoPixel WS2812 led Strip for now. You can tweak Hue.cpp to support other led strips. 
 
 
