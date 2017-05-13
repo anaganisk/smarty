@@ -38,5 +38,8 @@ create env.ini file in project root and replace the values as required.
     ; GPIO PIN connected to NEOPIXEL strip
     PIXEL_PIN = 2
 ```
+
+### Circuitry
+Refer [Circuit diagram](https://circuits.io/circuits/4939149-smarty-hue)
 ### License MIT
 refer [LICENSE.md](/LICENSE.md) for details
