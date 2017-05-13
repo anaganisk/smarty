@@ -32,8 +32,10 @@ create env.ini file in project root and replace the values as required.
     WIFI_SSID = ssid
     WIFI_PASS = password
     ; neopixel led configuration
-    PIXEL_COUNT = 8 ;total leds
-    PIXEL_PIN = 2 ;GPIO PIN connected to NEOPIXEL strip
+    ; total leds
+    PIXEL_COUNT = 8
+    ; GPIO PIN connected to NEOPIXEL strip
+    PIXEL_PIN = 2
 ```
 ### License MIT
 refer [LICENSE.md](/LICENSE.md) for details
