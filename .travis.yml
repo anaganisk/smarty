@@ -9,7 +9,7 @@ cache:
 
 install:
     - pip install -U platformio
-
+    - pip install -U configparser
 before_script:
     - wget https://gist.githubusercontent.com/anaganisk/f31adf060b1cecfc7a7b36fbbdce5253/raw/a2af135f657d34d88fcf723b2d1f0b35e502ad26/env.ini
 script:
