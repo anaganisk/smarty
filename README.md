@@ -1,6 +1,4 @@
-# Smarty [![Build Status](https://travis-ci.org/anaganisk/smarty.png)](https://travis-ci.org/anaganisk/smarty)
-*under development*
-
+# Smarty [![Build Status]
 Smarty is a simple home automation interface based on ESP8266(ESP-01) and Arduino framework. You can tweak platform settings to support other ESP8266 modules.
 
 ### Features
